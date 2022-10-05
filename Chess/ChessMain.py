@@ -62,9 +62,10 @@ def main():
                     # make the chess move now and keep track of the move
                     move = ChessEngine.Move(playerClicks[0], playerClicks[1],gs.board)
                     print(move.getChessNotation())
-                    if move in validMoves:
-                        gs.makeMove(move)
-                        moveMade == True
+                    """if move in validMoves: currently breaks taking turns, disabling for testing"""
+                    gs.makeMove(move)
+                    moveMade == True
+
                     sqSelected = () # reset user clicks 
                     playerClicks = []
             # key handlers 
