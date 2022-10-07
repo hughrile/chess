@@ -74,11 +74,49 @@ class GameState():
         for r in range(len(self.board)): # number of rows
             for c in range(len(self.board[r])): # number of column in given rows
                 turn = self.board[r][c][0]
-                print('ahhhhhhh ', turn)
                 if (turn == 'w' and self.whiteToMove) or (turn =='b' and not self.whiteToMove):
                     piece = self.board[r][c][1]
                     self.moveFunctions[piece](r,c,moves) # calls appropriate move function based on piece type
         return moves
+
+# sudocode for ranged move calculation, only allows movement to non occupied squares, need to make provision for this @here1
+"""
+    def calcDestinations(initSquare)
+        #calcDirection
+
+        piece = """?"""
+        direction = ["0,0"]
+        rangeMin = 0 """?"""
+        rangeMax = 8 """?"""
+        validMoves = []
+
+        if piece = Bishop
+        direction = ["1,1", "1,-1", "-1,-1". "-1,1"]
+
+        if piece = Rook
+        direction = ["0,1", "1,0", "0,-1", "-1,0"]
+
+        if piece = Queen
+        direction = ["1,1", "1,-1", "-1,-1". "-1,1", "0,1", "1,0", "0,-1", "-1,0"]
+
+        print(direction)
+        return direction
+
+
+        for dir in direction: # for each direction, obtain all potential 
+            for range(rangeMin, rangeMax-1)
+                if """within column && row bounds 0 < x <= 8"""
+                    realSquares.append(initSquare * direction)
+                    print(allMoves)
+
+        for move in realSquares:
+            if not self.board["""?"""]["""?"""] == '--' #append all values until a non empty square is identified #*here1
+                break
+            validMoves.append(move)
+
+        return validMoves
+"""
+
                         
     def getPawnMoves(self, r, c, moves):
         """Get all the pawn moves for the pawn located at row, col and add these moves to the list
@@ -126,7 +164,6 @@ class GameState():
                 # Captures to the right 
                 if self.board[r+1][c+1][0] == 'w':
                     moves.append(Move((r,c),(r+1,c+1),self.board))
-                      
         return moves
         
     def getRookMoves(self, r, c, moves):
